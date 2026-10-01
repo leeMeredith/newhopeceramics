@@ -3,7 +3,7 @@
 //   index.html?k=Bowls      one kind of work
 //   index.html?g=Floral     one glaze
 //   index.html?p=<id>       one piece, its photos, and how to buy it
-var EMAIL = "lee@newhopeceramics.com";
+var EMAIL = "leeleemeredith@gmail.com";
 var FACEBOOK = "https://www.facebook.com/NewHopeCeramics";
 var INSTAGRAM = "https://www.instagram.com/newhopeceramics/";
 var LEE = "https://leemeredith.github.io/";

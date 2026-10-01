@@ -69,3 +69,8 @@ h1 { font-weight: normal; font-size: clamp(24px, 18px + 1.5vw, 38px); margin: 6p
 .bottom { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 20px; border-top: 1px solid var(--line); margin-top: 30px; font-size: 14px; color: var(--soft); }
 
 @media print { .top nav, .buy, .bottom, .more-title, .more-title + .grid { display: none; } }
+/* Contact buttons look like the links around them. */
+.menu-list .menu-item { display: block; width: 100%; text-align: left; font: inherit; color: inherit; background: none; border: 0; padding: 6px 12px; cursor: pointer; }
+.menu-list .menu-item:hover, .menu-list .menu-item:focus { background: var(--accent); color: var(--accent-ink); }
+button.buy-button { font: inherit; border: 0; cursor: pointer; }
+.footer-contact { font: inherit; color: inherit; background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }

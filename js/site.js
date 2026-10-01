@@ -3,7 +3,19 @@
 //   index.html?k=Bowls      one kind of work
 //   index.html?g=Floral     one glaze
 //   index.html?p=<id>       one piece, its photos, and how to buy it
-var EMAIL = "leeleemeredith@gmail.com";
+// The address is never written out in the page, so address-harvesting bots
+// that read pages don't find it. It's put together only when someone clicks
+// a contact button, which then opens their mail app.
+var MAIL = ["moc.liamg", "htideremeeleel"];
+function mailTo(subject) {
+	var addr = MAIL[1].split("").reverse().join("") + "@" + MAIL[0].split("").reverse().join("");
+	location.href = "mailto:" + addr + (subject ? "?subject=" + encodeURIComponent(subject) : "");
+}
+function contactButton(cls, text, subject) {
+	var b = el("button", { type: "button", class: cls, text: text });
+	b.addEventListener("click", function () { mailTo(subject); });
+	return b;
+}
 var FACEBOOK = "https://www.facebook.com/NewHopeCeramics";
 var INSTAGRAM = "https://www.instagram.com/newhopeceramics/";
 var LEE = "https://leemeredith.github.io/";
@@ -75,10 +87,10 @@ function renderMenu() {
 		return el("a", { href: link("g=" + g), text: g + " (" + count(function (p) { return p.glaze.indexOf(g) >= 0; }) + ")" });
 	})));
 	nav.appendChild(dropdown("Purchase", [
-		el("a", { href: "mailto:" + EMAIL + "?subject=New%20Hope%20Ceramics", text: "By email" }),
+		contactButton("menu-item", "By email", "New Hope Ceramics"),
 		el("a", { href: FACEBOOK, rel: "noopener", text: "On Facebook" })
 	]));
-	nav.appendChild(el("a", { class: "menu-button", href: "mailto:" + EMAIL, text: "Contact" }));
+	nav.appendChild(contactButton("menu-button", "Contact", "New Hope Ceramics"));
 	document.addEventListener("click", function (e) { if (!e.target.closest(".menu")) closeMenus(); });
 	document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeMenus(); });
 }
@@ -101,12 +113,12 @@ function renderGrid(title, list, intro) {
 }
 
 function buyBox(p) {
-	var subject = encodeURIComponent("New Hope Ceramics: " + p.title);
+
 	return el("aside", { class: "buy" }, [
 		el("h2", { text: "Interested in this piece?" }),
 		el("p", { text: "Pieces are sold directly from the studio. Get in touch to ask about availability and price." }),
 		el("p", { class: "buy-links" }, [
-			el("a", { class: "buy-button", href: "mailto:" + EMAIL + "?subject=" + subject, text: "Email the studio" }),
+			contactButton("buy-button", "Email the studio", "New Hope Ceramics: " + p.title),
 			el("a", { class: "buy-button", href: FACEBOOK, rel: "noopener", text: "Message on Facebook" })
 		])
 	]);
@@ -149,3 +161,4 @@ function renderPage() {
 
 renderMenu();
 renderPage();
+document.querySelectorAll("[data-contact]").forEach(function (b) { b.addEventListener("click", function () { mailTo("New Hope Ceramics"); }); });

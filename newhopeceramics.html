@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+	<title>New Hope Ceramics</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Webpage For New Hope Ceramics"/>
+	<link rel="stylesheet" type="text/css" href="newhopeceramics.css"></link>
+	<script src="js/nav/myNav.js"></script>
+	<script src="js/nav/myNavData.js"></script>	
+	
+<!-- 	<script src="js/dateTimeFormat/myDateTimeFormat.js"></script> -->
+
+	<script src="js/dateTimeFormat/alertMMIn.js"></script><!-- this is for resizing of web site -->
+	
+<!-- 	<script src="js/randomParagraph/randomWord.js"></script> -->
+
+	<script src="js/myWorkMedia/myWorkMedia.js"></script>
+	<script src="js/myWorkMedia/myWorkData.js"></script>
+	
+</head>
+<body id="myBody" class= "backGround0">
+
+<!-- 	<div id="myDIV_Timer" class="box floatL midFont-ms midFont-mm midFont-ml midFont-t midFont-l midFont-ll midBigFont-k"></div> -->
+	<div id="" class="box floatL midFont-ms midFont-mm midFont-ml midFont-t midFont-l midFont-ll midBigFont-k"></div>
+
+	<div id="myDIV_ButtonNav" class="navUpper float-ms-L float-mm-L float-ml-R float-t-R float-l-R float-R">
+		<li id="myLI_NavUpper" class="navUpper floatR xNav">
+		</li>
+	</div>
+	
+	<div class="clearthefloats x8 colorBorder0"></div>
+	
+	<div id="myDIV_AllFromOpt" class="box x2"></div>	
+	
+	<div class="clearthefloats x8 colorBorder0"></div>
+
+	<div id="myDIV_ConceptMedia" class="box col-l-10 col-ll-10 col-10 colorBorder0 mainLink0 "></div>
+	
+	
+	
+	<div class="clearthefloats x8 colorBorder0"></div>
+
+<!--
+	<div id="myDIV_AtWindowOpen" class="backColor_1 col-t-12 col-l-12 col-ll-12 col-12">
+		<div id="myDIV_MyParagraph" class="column main col-ml-6 col-t-6 col-l-4 col-ll-4 col-3 midFont-ms midFont-mm midFont-ml midFont-t midBigFont-l midBigFont-ll midBigFont-k">
+			<p>Welcome</p>
+			<p>Thank you for visiting New Hope Ceramics online studio.</p>
+		</div>	
+		<div id="myDIV_MyParagraph" class="column main center col-ml-6 col-t-6 col-l-4 col-ll-4 col-3">
+			<img di="" class="center" src="media/img/set/setA.jpg"alt="this" width="3024" height="3024"></img>
+		</div>
+		<div id="myDIV_MyParagraph" class="column main col-t-12 col-l-4 col-ll-4 col-3  midFont-ms midFont-mm midFont-ml midFont-t midFont-l midFont-ll midBigFont-k"></div>	
+	</div>
+-->
+
+
+	<div class="clearthefloats x8 colorBorder0"></div>
+	
+	<div id="myDIV_NavSocial" class="boxColor0"></div>
+	
+	<div id="myDIV_NavBottom" class="navBottom float-R float-m-L">
+		<li id="myLI_NavBottom" class="navBottom xNav">
+		</li>
+	</div>
+	
+	<!-- &copy; 2010-<?php echo date("Y");?> -->
+</body>
+</html>
+
+<script>
+	
+	console.log(navigator.appVersion);
+	
+	var arrForAll = [];
+	arrForAll = mainMedia;
+	arrTest = mainMedia;//arrTest gos to myWorkMedia.js
+	
+/*
+	myId_Timer = "myDIV_Timer";
+	document.getElementById(myId_Timer).innerHTML = myTimer();
+*/
+
+	myMMIn();
+	console.log(idMatchMedia);
+	idMatchMediaWork = idMatchMedia;
+	
+	var myIDButtonNav = "myDIV_ButtonNav";
+	var myNavUpperArray = navUpper;
+	document.getElementById(myIDButtonNav).innerHTML = myButtonNav(myNavUpperArray);
+	
+	// create object containing all .dropdown elements
+	var dropdown = document.getElementsByClassName("dropdown");
+	// loop through "dropdown"
+	for (var d = 0; d < dropdown.length; d++) {
+	  // send each element to the "dropdownListen" function to listen for click
+	  dropdownListen(dropdown[d]);
+	}
+		
+/*
+	var _myDIV_AllFromOpt = "myDIV_AllFromOpt";
+	document.getElementById(_myDIV_AllFromOpt).innerHTML = allFromOpt(mainMedia);
+*/
+		
+/*
+	var myID_NavMain = "myDIV_NavMain";
+	var myNavMainArray = navMain;
+	document.getElementById(myID_NavMain).innerHTML = myNavMainFormImgOnsubmit(myNavMainArray);
+*/
+	
+/*
+	var newParId = "myParagraph_0";
+	var newParId_1 = "myParagraph_1";
+	setup();
+	document.getElementById(newParId).innerHTML = myParagraph(10,10,15,0);
+	document.getElementById(newParId_1).innerHTML = myParagraph(10,10,15,0);
+*/
+
+// 	document.getElementById("myDIV_TopicNav_1").innerHTML = topicNav();
+	
+	var myIDListNavBottom = "myLI_NavBottom";
+	var myNavBottomArray = navBottom;
+	document.getElementById(myIDListNavBottom).innerHTML = myNavBottom(myNavBottomArray);
+		
+	window.onbeforeunload = function(){
+		window.scrollTo(0,0);
+	}
+
+/*
+	var myID_DIV_6_1 = "myDIV_6_1";
+	var myNavSocialArray = navSocial;
+	document.getElementById(myID_DIV_6_1).innerHTML = myNavSocial(myNavSocialArray);
+*/
+	
+	var myNavSocialArray_Body = navSocial;
+	document.getElementById("myDIV_NavSocial").innerHTML = myNavSocialBody(navSocial);
+			
+</script>

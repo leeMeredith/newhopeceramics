@@ -1,0 +1,68 @@
+/* New Hope Ceramics: a white studio page, quiet type, the pots up front.
+   Colours are variables so dark mode only has to change them. */
+:root {
+	--page: #ffffff;
+	--ink: #1e1e1e;
+	--soft: #5a5a5a;
+	--line: #d8d8d8;
+	--panel: #f3f2ef;
+	--accent: #4f7f73;      /* a celadon green */
+	--accent-ink: #ffffff;
+	color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+	:root { --page: #161616; --ink: #e6e6e6; --soft: #a8a8a8; --line: #3a3a3a; --panel: #222220; --accent: #8fbcae; --accent-ink: #111; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 16px/1.55 Geneva, "Helvetica Neue", Arial, sans-serif; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+picture { display: contents; }
+
+.skip-link { position: absolute; left: 8px; top: -60px; padding: 8px 12px; background: var(--ink); color: var(--page); z-index: 10; }
+.skip-link:focus { top: 8px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+#main:focus { outline: none; }
+
+/* Header and menus */
+.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 20px; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-size: 22px; letter-spacing: .02em; }
+@media (prefers-color-scheme: dark) { .brand img { background: #fff; padding: 3px; border-radius: 4px; } }
+#menu { display: flex; flex-wrap: wrap; gap: 2px; position: relative; z-index: 100; }
+.menu { position: relative; }
+.menu-button { font: inherit; color: inherit; background: none; border: 0; padding: 6px 10px; cursor: pointer; text-decoration: none; display: inline-block; }
+.menu-button:hover, .menu.open .menu-button { background: var(--accent); color: var(--accent-ink); }
+.menu-list { display: none; position: absolute; right: 0; top: 100%; min-width: 170px; padding: 4px 0; background: var(--page); border: 1px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); z-index: 100; }
+.menu.open .menu-list { display: block; }
+.menu-list a { display: block; padding: 6px 12px; text-decoration: none; }
+.menu-list a:hover, .menu-list a:focus { background: var(--accent); color: var(--accent-ink); }
+
+/* Content */
+main { max-width: 1200px; margin: 0 auto; padding: 20px; }
+h1 { font-weight: normal; font-size: clamp(24px, 18px + 1.5vw, 38px); margin: 6px 0 12px; }
+.intro { max-width: 40em; color: var(--soft); margin: 0 0 20px; }
+.crumb { margin: 0; color: var(--soft); font-size: 14px; }
+.grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.tile { display: flex; flex-direction: column; gap: 4px; text-decoration: none; }
+.tile img, .tile .no-photo { width: 100%; aspect-ratio: 1; object-fit: cover; background: var(--panel); }
+.tile-title { font-size: 16px; }
+.tile-kind { font-size: 13px; color: var(--soft); }
+.tile:hover .tile-title { text-decoration: underline; }
+.no-photo { display: flex; align-items: center; justify-content: center; color: var(--soft); font-size: 14px; background: var(--panel); }
+.no-photo.wide { min-height: 240px; max-width: 760px; }
+
+/* One piece: photos in a single column, never cropped or stretched */
+.photos { display: flex; flex-direction: column; gap: 14px; max-width: 900px; }
+.photos img { width: auto; max-width: 100%; max-height: 90vh; }
+.buy { max-width: 900px; margin: 0 0 18px; padding: 14px 16px; background: var(--panel); border-left: 6px solid var(--accent); }
+.buy h2 { margin: 0 0 4px; font-size: 18px; font-weight: normal; }
+.buy p { margin: 0 0 8px; color: var(--soft); }
+.buy-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.buy-button { display: inline-block; padding: 6px 14px; background: var(--accent); color: var(--accent-ink); text-decoration: none; }
+.buy-button:hover { filter: brightness(1.1); }
+.more-title { font-weight: normal; font-size: 20px; margin: 32px 0 12px; }
+
+/* Footer */
+.bottom { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 20px; border-top: 1px solid var(--line); margin-top: 30px; font-size: 14px; color: var(--soft); }
+
+@media print { .top nav, .buy, .bottom, .more-title, .more-title + .grid { display: none; } }

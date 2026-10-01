@@ -52,8 +52,11 @@ h1 { font-weight: normal; font-size: clamp(24px, 18px + 1.5vw, 38px); margin: 6p
 .no-photo.wide { min-height: 240px; max-width: 760px; }
 
 /* One piece: photos in a single column, never cropped or stretched */
-.photos { display: flex; flex-direction: column; gap: 14px; max-width: 900px; }
-.photos img { width: auto; max-width: 100%; max-height: 90vh; }
+.photos { display: block; max-width: 900px; }
+/* Plain block layout, not flex: a flex column stretches each photo to the
+   column's width, and Safari then squashes a tall one to fit the height
+   limit. object-fit keeps the shape even if a browser stretches the box. */
+.photos img { display: block; width: auto; height: auto; max-width: 100%; max-height: 90vh; object-fit: contain; margin: 0 0 14px; }
 .buy { max-width: 900px; margin: 0 0 18px; padding: 14px 16px; background: var(--panel); border-left: 6px solid var(--accent); }
 .buy h2 { margin: 0 0 4px; font-size: 18px; font-weight: normal; }
 .buy p { margin: 0 0 8px; color: var(--soft); }
